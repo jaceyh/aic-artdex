@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jacey Hallock's Simple JS Pokedex</title>
+        <link rel="stylesheet" type="text/css" href="#">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+    </head>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://pokeapi.co/"> PokeAPI </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+      <ul class="artwork-list"></ul>
+        <!--modal-->
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="artwork-title">Modal title</h1>
+                    <button type="button" class="modal-close-btn" aria-label="Close">
+                         <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        <script> src="js/promise-polyfill.js"</script>
+        <script> src="js/fetch-polyfill.js"</script>
+        <script src="#"></script>
+    </body>
+</html>
