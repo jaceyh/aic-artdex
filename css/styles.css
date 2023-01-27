@@ -1,3 +1,56 @@
 /*GENERAL STYLES*/
 
+body {
+    background-color: #fff;
+    margin-top: 70px;
+    padding: 10px;
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    font-size: x-large;
+    letter-spacing: 1px;
+    line-height: 150%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
 
+.sr-only {
+    display: none;
+}
+
+/* HEADER */
+.page-header {
+    display: flex;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .page-header__item {
+    flex: 0 1 200px;
+    margin: auto auto;
+  }
+    
+  .page-header__item:last-child {
+    flex-grow: 1;
+    text-align: right;
+    text-justify: center;
+  }
+  
+  /* NAV */
+  .nav-list {
+    list-style-type: none;
+    text-align: right;
+  }
+  
+  .nav-item,
+  .nav-link {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: smaller;
+    text-decoration: none;
+  }
+    
+  
+  .nav-item_active {
+    text-decoration: none;
+    font-weight: bolder;
+  }
