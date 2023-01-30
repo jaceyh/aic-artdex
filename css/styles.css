@@ -54,3 +54,32 @@ body {
     text-decoration: none;
     font-weight: bolder;
   }
+
+  body {
+    font-size: 24px;
+  }
+
+  .artwork-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 10px;
+  }
+  
+  .button-class {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: rgb(255, 247, 255);
+    color:black;
+    padding: 20px;
+    border: 1px;
+    border-color: lightgrey;
+    border-radius: 3px;
+  }
+
+  button:hover, button:focus,
+.button-class:hover, .button-class:focus {
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
