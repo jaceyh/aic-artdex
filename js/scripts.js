@@ -21,14 +21,6 @@ function loadList() {
         })
     }
 
-function loadDetails(item) {
-    let url = item.config.iiif_url
-    return fetch(url).then(function (response) {
-        return response.json();
-    }).then(function (config) {
-                item.imgUrl = config.iiif_url;
-                });
-    }
 
 /*let artist = []
 artwork.artist_titles.forEach(function () {
@@ -54,17 +46,10 @@ function addListItem (artwork) {
     button.innerText = artwork.title;
     button.classList.add("button-class");
     container.appendChild(button);
-    button.addEventListener('click', showDetails(artwork));
+    button.addEventListener('click', showDetails);
 };
 
-
-function showDetails (artwork) {
-    loadList().then(function() {
-        showModal(artwork.title, artwork.artist);
-    });
-};
-
-
+//function to implement loadList and add each artwork to the page
 loadList().then(function() {
     //now the data is loaded!
     getAll().forEach(function (artwork) {
@@ -82,9 +67,12 @@ function showModal(title, text){
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
+    //add new modal content
+
+    //create close button
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
+    closeButtonElement.innerText = 'X';
     closeButtonElement.addEventListener('click', hideModal);
 
     //create element for title in modal content
@@ -129,10 +117,11 @@ function hideModal() {
     modalContainer.classList.remove('is-visible');
 };
 
-
-
+//this is called from a click on button (above)
 function showDetails (artwork) {
-    loadList().then(function() {
+    loadList(artwork).then(function () {
+        getAll().forEach(function (artwork) {
         showModal(artwork.title, artwork.artist);
     });
+});
 };
