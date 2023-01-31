@@ -57,6 +57,22 @@ function addListItem (artwork) {
     button.addEventListener('click', showDetails(artwork));
 };
 
+
+function showDetails (artwork) {
+    loadList().then(function() {
+        showModal(artwork.title, artwork.artist);
+    });
+};
+
+
+loadList().then(function() {
+    //now the data is loaded!
+    getAll().forEach(function (artwork) {
+        addListItem(artwork);
+    });
+});
+
+
 function showModal(title, text){
     let modalContainer = document.querySelector("#modal-container");
     modalContainer.classList.add('is-visible');
@@ -69,7 +85,7 @@ function showModal(title, text){
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
-    //closeButtonElement.addEventListener('click', hideModal);
+    closeButtonElement.addEventListener('click', hideModal);
 
     //create element for title in modal content
     let titleElement = document.createElement('h1');
@@ -93,20 +109,24 @@ function showModal(title, text){
     locElement.innerText = artwork.location;
     */
 
-   // modal.appendChild(closeButtonElement);
+    modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(artistElement);
     //modal.appendChild(dateElement);
     //modal.appendChild(locElement);
     modalContainer.appendChild(modal);
 
-   /* document.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
         let target = e.target;
         if (target === modalContainer) {
           hideModal();
         }
     });
-    */
+};
+
+function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
 };
 
 
@@ -116,11 +136,3 @@ function showDetails (artwork) {
         showModal(artwork.title, artwork.artist);
     });
 };
-
-
-loadList().then(function() {
-    //now the data is loaded!
-    getAll().forEach(function (artwork) {
-        addListItem(artwork);
-    });
-});
